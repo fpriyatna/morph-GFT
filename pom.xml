@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.upm.fi.dia.oeg.obdi</groupId>
+  <artifactId>odemapster-r2rml-fusiontable-querytranslator</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source/>
+          <target/>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <repositories>
+    <repository>
+      <id>google-api-services</id>
+      <url>http://google-api-client-libraries.appspot.com/mavenrepo</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-fusiontables</artifactId>
+      <version>v1-rev13-1.12.0-beta</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.http-client</groupId>
+      <artifactId>google-http-client-jackson2</artifactId>
+      <version>${project.http.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.oauth-client</groupId>
+      <artifactId>google-oauth-client-jetty</artifactId>
+      <version>${project.oauth.version}</version>
+    </dependency>    
+    <dependency>
+    	<groupId>org.apache.jena</groupId>
+    	<artifactId>jena-arq</artifactId>
+    	<version>2.9.4</version>
+    </dependency>
+  </dependencies>
+  
+  <properties>
+    <project.http.version>1.12.0-beta</project.http.version>
+    <project.oauth.version>1.12.0-beta</project.oauth.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>  
+</project>
