@@ -1,36 +1,33 @@
 package es.upm.fi.dia.oeg.obdi.wrapper.r2rml.fusiontables.querytranslator
 
-import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.querytranslator.R2RMLQueryTranslator;
-import es.upm.fi.dia.oeg.obdi.core.sql.SQLQuery;
-import es.upm.fi.dia.oeg.obdi.core.model.AbstractMappingDocument;
-import es.upm.fi.dia.oeg.obdi.core.engine.AbstractUnfolder;
+import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.querytranslator.R2RMLQueryTranslator
+import es.upm.fi.dia.oeg.obdi.core.sql.SQLQuery
+import es.upm.fi.dia.oeg.obdi.core.model.AbstractMappingDocument
+import es.upm.fi.dia.oeg.obdi.core.engine.AbstractUnfolder
 import es.upm.fi.dia.oeg.obdi.core.model.AbstractConceptMapping
-import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.querytranslator.R2RMLBetaGenerator;
-import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.querytranslator.R2RMLCondSQLGenerator;
-import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.querytranslator.R2RMLPRSQLGenerator;
-import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.engine.R2RMLElementUnfoldVisitor;
-import es.upm.fi.dia.oeg.obdi.core.querytranslator.QueryTranslatorUtility;
-import es.upm.fi.dia.oeg.obdi.core.querytranslator.AlphaResult;
-import es.upm.fi.dia.oeg.obdi.core.querytranslator.BetaResult;
-
+import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.querytranslator.R2RMLBetaGenerator
+import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.querytranslator.R2RMLCondSQLGenerator
+import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.querytranslator.R2RMLPRSQLGenerator
+import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.engine.R2RMLElementUnfoldVisitor
+import es.upm.fi.dia.oeg.obdi.core.querytranslator.QueryTranslatorUtility
+import es.upm.fi.dia.oeg.obdi.core.querytranslator.AlphaResult
+import es.upm.fi.dia.oeg.obdi.core.querytranslator.BetaResult
 import com.hp.hpl.jena.graph.Node
 import com.hp.hpl.jena.graph.Triple
-import com.hp.hpl.jena.vocabulary.RDF;
-
-import Zql.ZExp;
-
-import org.apache.log4j.Logger;
-
-
+import com.hp.hpl.jena.vocabulary.RDF
+import Zql.ZExp
+import org.apache.log4j.Logger
 import scala.collection.JavaConversions._
+import es.upm.fi.dia.oeg.morph.base.Constants
 
 
 class R2RMLFusionTablesQueryTranslator  extends R2RMLQueryTranslator {
 	val logger : Logger = Logger.getLogger("R2RMLFusionQueryTranslator");
 	super.setUnfolder(new R2RMLElementUnfoldVisitor());
-		
+	databaseType = Constants.DATABASE_GFT;
+	
   override protected def buildAlphaGenerator(): Unit = {  
-    super.setAlphaGenerator(new R2RMLFusionTablesAlphaGenerator());
+    super.setAlphaGenerator(new R2RMLFusionTablesAlphaGenerator(this));
   }
 
   override protected def buildBetaGenerator(): Unit = {  

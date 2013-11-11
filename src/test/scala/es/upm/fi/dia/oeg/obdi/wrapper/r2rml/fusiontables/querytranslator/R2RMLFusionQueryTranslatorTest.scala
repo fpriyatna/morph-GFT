@@ -50,11 +50,11 @@ object R2RMLFusionQueryTranslatorTest {
 //			val runner = new R2RMLRunner(configurationDirectory + "1pQBGUqR_g-j1WQavu-Fi1wGS7jsdRxomGc0DxMI", "oegmembers.r2rml.properties");
 			val runner = new R2RMLRunner();
 
-//			runner.readMappingDocumentFile("http://mappingpedia.linkeddata.es/mappings/fusiontables/1pQBGUqR_g-j1WQavu-Fi1wGS7jsdRxomGc0DxMI/oegmembers.ttl");
-//			runner.readSPARQLFile("http://mappingpedia.linkeddata.es/mappings/fusiontables/1pQBGUqR_g-j1WQavu-Fi1wGS7jsdRxomGc0DxMI/oegmembers.sparql");
+			runner.readMappingDocumentFile("http://mappingpedia.linkeddata.es/mappings/fusiontables/1pQBGUqR_g-j1WQavu-Fi1wGS7jsdRxomGc0DxMI/oegmembers.ttl");
+			runner.readSPARQLFile("http://mappingpedia.linkeddata.es/mappings/fusiontables/1pQBGUqR_g-j1WQavu-Fi1wGS7jsdRxomGc0DxMI/oegmembers.sparql");
 
-			runner.readMappingDocumentFile("http://mappingpedia.linkeddata.es/mappings/gft/1pQBGUqR_g-j1WQavu-Fi1wGS7jsdRxomGc0DxMI/oegmembers.ttl");
-			runner.readSPARQLFile("https://dl.dropboxusercontent.com/u/531378/gft2rdf/CableGate.sparql");
+//			runner.readMappingDocumentFile("http://mappingpedia.linkeddata.es/mappings/gft/1pQBGUqR_g-j1WQavu-Fi1wGS7jsdRxomGc0DxMI/oegmembers.ttl");
+//			runner.readSPARQLFile("https://dl.dropboxusercontent.com/u/531378/gft2rdf/CableGate.sparql");
 
 			
 			

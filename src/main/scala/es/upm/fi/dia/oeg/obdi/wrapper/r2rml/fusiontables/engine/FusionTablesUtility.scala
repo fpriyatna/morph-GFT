@@ -188,7 +188,7 @@ class FusionTablesUtility {
   }
 
   def executeSQL(sqlString : String) : Sqlresponse = {
-    //logger.info("Executing query : \n" + sqlString);
+    logger.info("Executing query : \n" + sqlString);
     val sql = fusiontables.query().sql(sqlString);
     val response = sql.execute();
     response;
@@ -234,15 +234,22 @@ class FusionTablesUtility {
 //	fusionTablesUtility.showRows2(tableId2, "Country%20Code");
     
 //    val tableId2 = "1YDlqQzZHVMPxSadct1u5cBBiN341xOCMcO6kSkU";
-//	val sqlSelect = "SELECT 'Country code' AS countrycode\n";
+//	val sqlSelect = "SELECT 'Country code' AS \"countrycode\"\n";
 //	val sqlFrom = " FROM " + tableId2 + "\n";
 //	val sqlWhere = " WHERE 'Country code' NOT EQUAL TO '' AND 'Region' NOT EQUAL TO ''" + "\n";
 //	val sqlString = sqlSelect + sqlFrom + sqlWhere;
-	
-//	val sqlString = this.testFusionTable().toString();
-	
 //	val sqlResponse = fusionTablesUtility.executeSQL(sqlString);
 //	logger.info("sqlResponse = " + sqlResponse);
-    
+
+				
+
+	val tableId2 = "1pQBGUqR_g-j1WQavu-Fi1wGS7jsdRxomGc0DxMI";
+	val sqlSelect = "SELECT 'Country' AS \"country\",'Name' AS \"member\",'Name' AS \"name\" \n";
+	val sqlFrom = " FROM " + tableId2 + "\n";
+	val sqlWhere = " WHERE 'Name' NOT EQUAL TO '' AND 'Country' NOT EQUAL TO ''" + "\n";
+	val sqlString = sqlSelect + sqlFrom + sqlWhere;
+	val sqlResponse = fusionTablesUtility.executeSQL(sqlString);
+	logger.info("sqlResponse = " + sqlResponse);
+
 		}    
   }

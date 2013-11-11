@@ -15,9 +15,10 @@ import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.model.R2RMLTriplesMap
 import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.engine.R2RMLElementUnfoldVisitor
 import es.upm.fi.dia.oeg.obdi.core.sql.SQLQuery;
 import es.upm.fi.dia.oeg.obdi.wrapper.r2rml.rdb.querytranslator.R2RMLAlphaGenerator
+import es.upm.fi.dia.oeg.obdi.core.querytranslator.AbstractQueryTranslator;
 
-class R2RMLFusionTablesAlphaGenerator() 
-extends R2RMLAlphaGenerator() {
+class R2RMLFusionTablesAlphaGenerator(owner : AbstractQueryTranslator) 
+extends R2RMLAlphaGenerator(owner : AbstractQueryTranslator) {
   val logger : Logger = Logger.getLogger("R2RMLFusionTablesAlphaGenerator");
 
 
