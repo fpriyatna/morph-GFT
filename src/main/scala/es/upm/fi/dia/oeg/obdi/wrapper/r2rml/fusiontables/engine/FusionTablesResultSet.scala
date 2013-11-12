@@ -39,9 +39,17 @@ extends AbstractResultSet {
 	}
 	
 	def getInt(columnLabel : String) : Integer = {
-		val columnIndex = super.getColumnNames().indexOf(columnLabel);
-		val result = this.getInt(columnIndex);
-		result;	  
+	  val result =  {
+		  try {
+		    val columnIndex = super.getColumnNames().indexOf(columnLabel);
+		    this.getInt(columnIndex);
+		  } catch {
+		    case e:Exception => {
+		    	null;
+		    }
+		  }	    
+	  }
+	  result;	  
 	}	
 	
 }
