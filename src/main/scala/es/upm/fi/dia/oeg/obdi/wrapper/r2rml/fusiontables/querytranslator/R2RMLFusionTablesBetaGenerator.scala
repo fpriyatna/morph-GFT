@@ -27,7 +27,7 @@ extends AbstractBetaGenerator(pOwner : AbstractQueryTranslator) {
 	: java.util.List[ZSelectItem] = {
 		var result:List[ZSelectItem] = Nil;
 		val triplesMap = cm.asInstanceOf[R2RMLTriplesMap];
-		val logicalTableAlias = alphaResult.getAlphaSubject().getAlias();
+		//val logicalTableAlias = alphaResult.getAlphaSubject().getAlias();
 		val tpSubject = tp.getSubject();
 		
 		val subjectMap = triplesMap.getSubjectMap();
@@ -41,7 +41,7 @@ extends AbstractBetaGenerator(pOwner : AbstractQueryTranslator) {
 		if(databaseColumnsString != null) {
 			for(databaseColumnString <- databaseColumnsString) {
 				val selectItem = MorphSQLSelectItem.apply(
-				    databaseColumnString, logicalTableAlias, dbType, null);
+				    databaseColumnString, null, dbType, null);
 				result = result ::: List(selectItem);
 			}
 		}
@@ -55,7 +55,7 @@ extends AbstractBetaGenerator(pOwner : AbstractQueryTranslator) {
 		val predicateObjectMap = pm.asInstanceOf[R2RMLPredicateObjectMap];
 		val refObjectMap = predicateObjectMap.getRefObjectMap(); 
 		var betaObjects:List[ZSelectItem] = Nil;
-		val logicalTableAlias = alphaResult.getAlphaSubject().getAlias();
+		//val logicalTableAlias = alphaResult.getAlphaSubject().getAlias();
 		val tpObject = tp.getObject();
 
 
@@ -77,7 +77,7 @@ extends AbstractBetaGenerator(pOwner : AbstractQueryTranslator) {
 				val databaseColumnsString = objectMap.getDatabaseColumnsString();
 				for(databaseColumnString <- databaseColumnsString) {
 					val selectItem = MorphSQLSelectItem.apply(
-							databaseColumnString,logicalTableAlias, dbType, null);
+							databaseColumnString,null, dbType, null);
 					
 					betaObjects = betaObjects ::: List(selectItem);
 				}
@@ -90,12 +90,12 @@ extends AbstractBetaGenerator(pOwner : AbstractQueryTranslator) {
 			}
 			
 			val databaseColumnsString = refObjectMap.getParentDatabaseColumnsString();
-			val refObjectMapAlias = this.owner.asInstanceOf[R2RMLQueryTranslator].getMapTripleAlias().get(tp);
+			//val refObjectMapAlias = this.owner.asInstanceOf[R2RMLQueryTranslator].getMapTripleAlias().get(tp);
 
 			if(databaseColumnsString != null) {
 				for(databaseColumnString <- databaseColumnsString) {
 					val selectItem = MorphSQLSelectItem.apply(
-							databaseColumnString, refObjectMapAlias, dbType, null);
+							databaseColumnString, null, dbType, null);
 					betaObjects.add(selectItem);
 				}
 			}
